@@ -1,260 +1,243 @@
 # MirrorCloneFX
 
-A real-time computer vision application that creates stylized clones of yourself using your webcam. Control different visual effects with simple hand gestures powered by MediaPipe and OpenCV.
+irrorCloneFX
 
-## Features
+MirrorCloneFX is a real-time computer vision application that creates stylized visual clones of yourself using a webcam. It uses hand gesture recognition powered by MediaPipe and OpenCV to switch between dynamic visual effects instantly.
 
-- **Split-screen view**: Original webcam feed on the left, stylized clone on the right
-- **Hand gesture controls**: Use MediaPipe hand tracking to switch between effects in real-time
-- **Multiple visual styles**:
-  - **Dots**: Stippled dot rendering with variable sizes
-  - **Lines**: Edge outline rendering with enhanced colors
-  - **ASCII**: Text character art using Unicode block characters
-  - **Particles**: Dynamic swirling particles that follow your movement with physics
+Features
 
-## Hand Gestures
-<img width="1583" height="903" alt="image" src="https://github.com/user-attachments/assets/c4b681a7-b807-4e5e-8e99-959160887e64" />
-<img width="1578" height="932" alt="image" src="https://github.com/user-attachments/assets/0f2ac1b9-3b22-4860-b0b6-24117e935a0e" />
+Split-screen view
+Displays the original webcam feed alongside a stylized clone in real time.
+
+Gesture-based controls
+Switch effects using simple hand gestures detected via MediaPipe hand tracking.
+
+Multiple visual styles
+
+Dots – Stippled dot rendering with variable sizes
+
+Lines – Edge-based outline rendering with enhanced color effects
+
+ASCII – Unicode-based text art representation
+
+Particles – Physics-driven particles that follow movement dynamically
+
+Hand Gesture Controls
+Gesture	Effect	Description
+Two fingers (peace sign)	Dots	Creates a stippled dot version using original colors
+One finger up	Lines	Shows edge outlines and contours with glow effects
+Thumb + pinky out	ASCII	Renders the image as ASCII art with color intensity mapping
+Open palm (all fingers)	Particles	Generates physics-based particles that follow movement
+Installation
+Prerequisites
+
+Python 3.7 or higher
+
+A working webcam
+
+Good lighting for accurate hand detection
+
+Setup
+
+Clone the repository
+
+git clone https://github.com/tubakhxn/MirrorCloneFX.git
+cd MirrorCloneFX
 
 
-| Gesture | Effect | Description |
-|---------|--------|-------------|
-| Two fingers (peace sign) | Dots | Creates a stippled dot version using original colors |
-| One finger up | Lines | Shows edge outlines and contours with glow effect |
-| Thumb + pinky out | ASCII | Renders you as ASCII art with color-coded intensity |
-| Open palm (all fingers) | Particles | Generates physics-based particles following hand movement |
+Install dependencies
 
-## Installation
+pip install -r requirements.txt
 
-### Prerequisites
-- Python 3.7 or higher
-- Webcam connected to your computer
-- Good lighting conditions for optimal hand detection
 
-### Setup
+Run the application
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/tubakhxn/MirrorCloneFX.git
-   cd MirrorCloneFX
-   ```
+python main.py
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+Usage
 
-3. **Run the application**
-   ```bash
-   python main.py
-   ```
+Position yourself clearly in front of the webcam
 
-## Usage
+Keep your hand visible in the camera frame
 
-1. **Position yourself in front of your webcam** with good lighting
-2. **Keep your hand visible** to the camera for gesture detection
-3. **Use hand gestures** to switch between visual effects
-4. **Press 'q'** to quit the application
+Perform hand gestures to switch effects
 
-The current mode is displayed in the top-left corner of the window.
+Press q to exit the application
 
-## Technical Details
+The currently active mode is displayed in the top-left corner of the window.
 
-### Architecture
-- **OpenCV**: Webcam capture and real-time image processing
-- **MediaPipe**: Hand landmark detection and gesture recognition
-- **NumPy**: Numerical computations for visual effects
+Technical Overview
+Core Technologies
 
-### Visual Effects Implementation
-- **Dots**: Intensity-based circle rendering with variable sizes
-- **Lines**: Canny edge detection with enhanced color mapping
-- **ASCII**: Unicode block character mapping with color-coded intensity levels
-- **Particles**: Physics-based particle system with gravity and momentum
+OpenCV – Video capture and image processing
 
-### Performance
-- Runs at 30 FPS on most modern hardware
-- Real-time hand tracking with 21 landmark points
-- Optimized algorithms for smooth visual transitions
+MediaPipe – Real-time hand landmark detection
 
-## Requirements
+NumPy – Efficient numerical operations
 
-### System Requirements
-- **OS**: Windows, macOS, or Linux
-- **Python**: 3.7 or higher
-- **RAM**: 4GB minimum (8GB recommended)
-- **CPU**: Multi-core processor recommended
-- **Webcam**: Any USB or built-in camera
+Visual Effects
 
-### Dependencies
-- `opencv-python>=4.5.0` - Computer vision and image processing
-- `mediapipe>=0.8.9` - Hand tracking and gesture recognition  
-- `numpy>=1.21.0` - Numerical computations for image effects
+Dots – Intensity-based circular rendering
 
-## Contributing
+Lines – Canny edge detection with color enhancement
 
-We welcome contributions to MirrorCloneFX! Here's how you can help:
+ASCII – Unicode block character mapping
 
-### Ways to Contribute
-- **Bug Reports**: Found a bug? Open an issue with detailed steps to reproduce
-- **Feature Requests**: Have an idea for a new visual effect? Share it in the issues
-- **Code Contributions**: Submit pull requests for bug fixes or new features
-- **Documentation**: Help improve documentation and examples
-- **Testing**: Test on different platforms and report compatibility issues
+Particles – Physics-based system with gravity and momentum
 
-### Development Setup
+Performance
 
-1. **Fork the repository** on GitHub
-2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/MirrorCloneFX.git
-   cd MirrorCloneFX
-   ```
-3. **Create a new branch** for your feature:
-   ```bash
-   git checkout -b feature-name
-   ```
-4. **Install development dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-5. **Make your changes** and test thoroughly
-6. **Commit your changes**:
-   ```bash
-   git add .
-   git commit -m "Add your descriptive commit message"
-   ```
-7. **Push to your fork**:
-   ```bash
-   git push origin feature-name
-   ```
-8. **Create a Pull Request** on GitHub
+Runs at ~30 FPS on modern hardware
 
-### Code Style Guidelines
-- Follow PEP 8 Python style guide
-- Add docstrings for new functions and classes
-- Include comments for complex algorithms
-- Test your changes before submitting
-- Ensure compatibility with Python 3.7+
+Tracks 21 hand landmarks in real time
 
-### Adding New Visual Effects
+Optimized for smooth transitions between effects
 
-To add a new visual effect:
+System Requirements
+Hardware
 
-1. **Create a new method** in the `MirrorCloneFX` class:
-   ```python
-   def create_your_effect(self, frame):
-       """Create your custom visual effect"""
-       # Your implementation here
-       return processed_frame
-   ```
+OS: Windows, macOS, or Linux
 
-2. **Add the effect to the modes dictionary**:
-   ```python
-   self.modes = {
-       0: "Dots",
-       1: "Lines", 
-       2: "ASCII",
-       3: "Particles",
-       4: "YourEffect"  # Add your effect
-   }
-   ```
+RAM: 4GB minimum (8GB recommended)
 
-3. **Update the gesture detection** to include your effect
-4. **Test thoroughly** with different lighting conditions
-5. **Update documentation** with the new gesture and effect
+CPU: Multi-core processor recommended
 
-### Reporting Issues
+Webcam: USB or built-in camera
 
-When reporting issues, please include:
-- **Operating System** and version
-- **Python version**
-- **Steps to reproduce** the issue
-- **Expected vs actual behavior**
-- **Screenshots or videos** if applicable
-- **Error messages** (full traceback)
+Software Dependencies
 
-## License
+opencv-python >= 4.5.0
 
-This project is open source and available under the [MIT License](LICENSE).
+mediapipe >= 0.8.9
 
-## Acknowledgments
+numpy >= 1.21.0
 
-- **MediaPipe** team for excellent hand tracking capabilities
-- **OpenCV** community for comprehensive computer vision tools
-- **Python** community for the amazing ecosystem
+Contributing
 
-## Troubleshooting
+Contributions are welcome and appreciated.
 
-### Common Issues
+How to Contribute
 
-**Camera not detected**
-- Ensure webcam is connected and not used by another application
-- Try different USB ports
-- Check camera permissions in system settings
+Report bugs via GitHub Issues
 
-**Hand gestures not working**
-- Ensure good lighting conditions
-- Keep hand clearly visible and within camera frame
-- Try adjusting distance from camera (arm's length works best)
-- Make sure gestures are held steady for 1-2 seconds
+Suggest new effects or improvements
 
-**Performance issues**
-- Close other applications to free up CPU/memory
-- Ensure adequate lighting to reduce processing overhead
-- Try lower resolution if available in your camera settings
+Submit pull requests for features or fixes
 
-**Installation errors**
-- Verify Python 3.7+ is installed: `python --version`
-- Update pip: `pip install --upgrade pip`
-- Install dependencies one by one if batch install fails
+Improve documentation or testing coverage
 
-### Platform-Specific Notes
+Development Workflow
 
-**Windows**
-- May require Visual C++ redistributables for OpenCV
-- Use Command Prompt or PowerShell for installation
+Fork the repository
 
-**macOS**
-- May need to grant camera permissions in System Preferences
-- Use Terminal for installation commands
+Clone your fork
 
-**Linux**
-- May need additional packages: `sudo apt-get install python3-opencv`
-- Ensure camera drivers are properly installed
+git clone https://github.com/YOUR-USERNAME/MirrorCloneFX.git
 
-## Customization
 
-### Modifying Visual Effects
+Create a feature branch
 
-You can customize the visual effects by editing the corresponding methods:
+git checkout -b feature-name
 
-**Dots Effect** (`create_dots_effect`)
-- Adjust `dot_spacing` for density
-- Modify `radius` calculation for dot sizes
-- Change color enhancement factor
 
-**Lines Effect** (`create_lines_effect`)
-- Modify Canny edge detection parameters
-- Adjust color enhancement multiplier
-- Change glow effect intensity
+Make and test your changes
 
-**ASCII Effect** (`create_ascii_effect`)
-- Change `self.ascii_chars` for different character sets
-- Adjust `char_width` and `char_height` for spacing
-- Modify color thresholds
+Commit and push
 
-**Particles Effect** (`create_particles_effect`)
-- Adjust `max_particles` for density
-- Modify physics parameters (gravity, velocity)
-- Change particle lifetime and appearance
+Open a pull request
 
-## Star History
+Code Guidelines
 
-If you find this project useful, please consider giving it a star on GitHub!
+Follow PEP 8
 
-## Connect
+Add docstrings and comments
 
-- **GitHub**: [tubakhxn](https://github.com/tubakhxn)
-- **Issues**: [Report bugs or request features](https://github.com/tubakhxn/MirrorCloneFX/issues)
-- **Discussions**: [Community discussions](https://github.com/tubakhxn/MirrorCloneFX/discussions)
-# mirror_clone
+Ensure compatibility with Python 3.7+
+
+Adding New Visual Effects
+
+Create a new method in the main class:
+
+def create_custom_effect(self, frame):
+    return processed_frame
+
+
+Register the effect in the modes dictionary
+
+Assign a gesture trigger
+
+Test under different lighting conditions
+
+Update documentation accordingly
+
+Troubleshooting
+Common Issues
+
+Webcam not detected
+
+Ensure it’s not in use by another app
+
+Check system camera permissions
+
+Gesture recognition issues
+
+Improve lighting
+
+Keep hand fully visible
+
+Hold gestures steady for 1–2 seconds
+
+Performance drops
+
+Close background applications
+
+Improve lighting to reduce processing load
+
+Dependency installation errors
+
+Update pip
+
+Install packages individually if needed
+
+Platform Notes
+
+Windows
+
+May require Visual C++ redistributables
+
+macOS
+
+Camera permission may need manual approval
+
+Linux
+
+Additional OpenCV packages may be required
+
+Customization
+
+Each visual effect can be tweaked by adjusting parameters such as:
+
+Density and size (Dots)
+
+Edge thresholds and glow intensity (Lines)
+
+Character sets and spacing (ASCII)
+
+Physics parameters and particle count (Particles)
+
+License
+
+Released under the MIT License. See the LICENSE file for details.
+
+Acknowledgments
+
+MediaPipe team for real-time hand tracking
+
+OpenCV community for computer vision tools
+
+Python open-source ecosystem
+
+Connect
+
+GitHub: https://github.com/tubakhxn
+
